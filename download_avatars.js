@@ -16,17 +16,26 @@ function getRepoContributors(repoOwner, repoName, cb) {
     }
   };
 
-  console.log(repoOwner)
-
   request(options, function(err, res, body) {
-    cb(err, JSON.parse(body));
+    // console.log('info received')
+    var parse = JSON.parse(body);
+    var urls = '';
+    for (let i = 0; i < parse.length; i++) {
+      urls += parse[i];
+      console.log(parse[i].avatar_url);
+    }
+    cb(err, parse);
   });
 }
 
+// function downloadImageByURL(url, filePath) {
+//   // ...
+// }
+
 
   getRepoContributors("jquery", "jquery", function(err, result) {
-  console.log("Errors:", err);
-  console.log("Result:", result);
+  // console.log("Errors:", err);
+  // console.log("Result:", result);
 });
 
 
