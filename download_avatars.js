@@ -46,11 +46,11 @@ function downloadImageByURL(url, id) {
        .pipe(fs.createWriteStream("./avatars/" + id + ".jpg")); // cause you're just adding strings together
 }
 
-
-
   getRepoContributors(process.argv[2], process.argv[3], function(err, result) {
-  // console.log("Errors:", err);
-  // console.log("Result:", result);
+       if (process.argv[2] === undefined || process.argv[3] === undefined) {
+        console.log("Errors:", err);
+      }
+
 });
 
 
